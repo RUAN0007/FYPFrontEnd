@@ -1,47 +1,40 @@
 
 $("#progress").hide();
 $("#processing").hide();
-
-
-var app1 = angular.module('myApp', []);
-app1.controller('myCtrl', function($scope) {    
     
-
-    $(":submit").click(function(){
-    	var sentence = $("#sentence").val();
-    	var selectedMode = $('#mode input:radio:checked').val();
-    	var animateBar=setInterval(animateProgressBar,1000)
-    	var result;
-    	$("#progress").show();
-    	$("#processing").show();
- $scope.sentiment = "asdf";
+$(":submit").click(function(){
 	
-    	if(selectedMode == "coarse"){
-    		if(containChinese(sentence)){
-			
-    			result = coarseChinese(sentence);
-    		}else{
-    			result = coarseEnglish(sentence);
-			
-    		}
+	
+	
+	var sentence = $("#sentence").val();
+	var selectedMode = $('#mode input:radio:checked').val();
+	var animateBar=setInterval(animateProgressBar,1000)
+	var result;
+	$("#progress").show();
+	$("#processing").show();
+	
+
+	if(selectedMode == "coarse"){
+		if(containChinese(sentence)){
 		
-    		 $scope.sentiment = "result";
+			coarseChinese(sentence);
+		}else{
+			coarseEnglish(sentence);
 		
+		}
+	
+	
+	
+	}else{
+		if(containChinese(sentence)){
 		
-    	}else{
-    		if(containChinese(sentence)){
-			
-    			result = fineChinese(sentence);
-    		}else{
-    			result = fineEnglish(sentence);
-    		}
-    	}
-    })
+			fineChinese(sentence);
+		}else{
+			fineEnglish(sentence);
+		}
+	}
+})
     
-    
-    
-    
-});
 
 
 
@@ -61,12 +54,33 @@ function animateProgressBar(){
 
 
 function coarseChinese(s){  
-	return "positive";
-	
+	var result = 
+	$.getJSON("test/positive.json",null,function(data){
+		console.log(data);
+		$("#p2").html(cap(data.sentiment));
+	});	
+	console.log("I am here");
 }
 
 function fineChinese(s){ 
-	console.log("fineChinese");
+	
+	$.ajax({
+	//url: "http://localhost/~ruanpingcheng/product3.json",
+	url: "test/positive.json",
+	
+	type: "GET",
+	dataType:"json",
+		error:function(XMLHttpRequest, textStatus, errorThrown) {    
+		              alert(XMLHttpRequest.status);   // 200    
+		alert(errorThrown);  // SyntaxError: Unexpected end of input    
+		          }    ,
+	success:function(data){
+			console.log(data)
+	}
+	});
+	
+	
+	//console.log("fineChinese");
 	 
 }
 

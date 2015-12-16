@@ -8,32 +8,11 @@ function containChinese(s){
             }  
 }  
 
-
-function sleep(obj,iMinSecond) 
- {  
-  if (window.eventList==null)  
-  window.eventList=new Array();  
-  var ind=-1; 
-  for (var i=0;i<window.eventList.length;i++) 
-  {   
-   if (window.eventList[i]==null)  
-   {  
-    window.eventList[i]=obj;    
-    ind=i;   
-    break;   
-   }  
-  }  
-  if (ind==-1) 
-  {   
-   ind=window.eventList.length;   
-   window.eventList[ind]=obj; 
-  }  
-  setTimeout("GoOn(" + ind + ")",iMinSecond); 
- } 
- function GoOn(ind) 
- {  
-  var obj=window.eventList[ind]; 
-  window.eventList[ind]=null; 
-  if (obj.NextStep) obj.NextStep(); 
-  else obj(); 
- } 
+function cap(str){
+	str = str.toLowerCase();
+	 var reg = /\b(\w)|\s(\w)/g; //  \b判断边界\s判断空格
+	 return str.replace(reg,function(m){ 
+	  return m.toUpperCase()
+	 });
+	 return str;
+}

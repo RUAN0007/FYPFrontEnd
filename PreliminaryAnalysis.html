@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
 	<link rel="stylesheet" href="css/templatemo-style.css">
 	<!-- google web font css -->
-	<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -54,7 +53,7 @@
 				<h3>Enter the input  sentence:</h3>
 				<br>
 				
-				<textarea id="sentence" class="form-control" rows="3">弄好sdf</textarea>
+				<textarea id="sentence" class="form-control" rows="3"></textarea>
 				<br>
 				<h3>Select the output mode: </h3>
 				<div id="mode" class="radio">
@@ -72,21 +71,31 @@
 				<input   class="btn btn-default" type="submit" value="Submit">
 			</div>
 			<div class="col-md-6 col-sm-12 about-des">
-				<div  id="progress" class="progress">
+				<div id="waiting">
+				<div class="progress">
 				 <div id="bar" class="progress-bar progress-bar-danger " style="width: 0%">
 
 				   </div>
 				</div>
 
-   				<h1 id="processing" align="center">Processing ... ...</h1>
-			
-
-			<div ng-app="myApp" ng-controller="myCtrl">
-
-			<!-- <img src="image/{{sentiment}}.jpg"/> -->
-			<br>
-			<h2 align="center">{{sentiment}}</h2>
+   				<h1  align="center">Processing ... ...</h1>
 			</div>
+			
+			<div id="senti">
+				<img src="images/PolMin.jpg" align="center" class="img-responsive img-circle" width="800" height="500"/>
+				<h1 align="center"></h1>
+			</div>
+			
+			<div id="emotion">
+				<img align="center" class="img-responsive img-circle" width="500" height="150"/>
+				
+				<h1 align="center"></h1>
+				<div class="row">
+					
+				</div>
+				
+			</div>
+			
 			</div>
 		</div>
 <div>	

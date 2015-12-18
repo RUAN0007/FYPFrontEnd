@@ -1,0 +1,13 @@
+{"positive":
+	[
+	 {"word":"A","pos":"Noun","polarity":0.94},
+	 {"word":"B","pos":"Verb","polarity":0.9},
+	 {"word":"C","pos":"Adj","polarity":0.75}
+	 ],
+	 
+ "negative":
+ 	[{"word":"X","pos":"Noun","polarity":-0.4},
+ 	 {"word":"Y","pos":"Verb","polarity":-0.5},
+ 	 {"word":"X","pos":"Adj","polarity":-0.7}
+ 	 ]
+ }

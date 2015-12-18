@@ -60,7 +60,7 @@ function sentiCallback(data){
 	
 	$("#senti img").attr("src",imgSrc);
 	$("#senti h1").text(cap(sentiment));
-	$("#senti").show();
+	$("#senti").fadeIn(1000);
 	
 }
 
@@ -94,7 +94,7 @@ function emotionCallback(data){
 	
 	
 	
-	$("#emotion").show();
+	$("#emotion").fadeIn(1000);
 	
 }
 

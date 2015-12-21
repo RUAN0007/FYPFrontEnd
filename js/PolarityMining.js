@@ -4,6 +4,23 @@ $("#posSection").hide();
 $("#negSection").hide();
 
 $(":submit").click(function(){
+	var posContents = $("#pos").val();
+	var negContents = $("#neg").val();
+	
+	if(posContents.replace(/(^s*)|(s*$)/g, "").length + negContents.replace(/(^s*)|(s*$)/g, "").length ==0){
+		alert("Positive AND negative contents can NOT be empty");
+		return;
+	}
+	
+	if(posContents.replace(/(^s*)|(s*$)/g, "").length ==0){
+		alert("Positive contents can NOT be empty");
+		return;
+	}
+	if(negContents.replace(/(^s*)|(s*$)/g, "").length ==0){
+		alert("Negative contents can NOT be empty");
+		return;
+	}
+	
 	var animateBar=setInterval(animateProgressBar,1000)
 	$("#waiting").show();
 	$("#posSection").hide();
@@ -11,8 +28,7 @@ $(":submit").click(function(){
 	$("#posSection div table").remove();
 	$("#negSection div table").remove();
 	
-	var posContents = $("#pos").val();
-	var negContents = $("#neg").val();
+
 	
 	if(containChinese(posContents) || containChinese(negContents)){
 

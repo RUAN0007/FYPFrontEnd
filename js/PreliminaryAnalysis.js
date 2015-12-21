@@ -4,9 +4,7 @@ $("#senti").hide();
 $("#emotion").hide();
     
 $(":submit").click(function(){
-	$("#waiting").show();
-	$("#senti").hide();
-	$("#emotion").hide();
+	
 		
 	var sentence = $("#sentence").val();
 	
@@ -16,6 +14,9 @@ $(":submit").click(function(){
 	}
 	
 	var selectedMode = $('#mode input:radio:checked').val();
+	$("#waiting").show();
+	$("#senti").hide();
+	$("#emotion").hide();
 	var animateBar=setInterval(animateProgressBar,1000)
 	var result;
 	

@@ -25,9 +25,9 @@ $("#addTopic").click(function(){
 
   //
 $("#paragraph").click(function(){
+	if(hasEmptyInput()) return;
+	
 	$("#waiting").show();
-	alert(constructArgument());
-
 	// if(containChinese(posContents) || containChinese(negContents)){
 //
 // 		chinese(posContents,negContents);
@@ -36,7 +36,26 @@ $("#paragraph").click(function(){
 // 	}
 
 
-})
+});
+
+function hasEmptyInput(){
+	var r = false;
+	$("input").each(function(){
+		var t = $(this).val();
+		if (t.replace(/(^s*)|(s*$)/g, "").length ==0){ 
+			r = true;
+			
+			alert('Some text input is empty!'); 	
+		}
+	});
+	
+	if($("textarea").val().replace(/(^s*)|(s*$)/g, "").length ==0){	
+		r = true
+		alert('Some text input is empty!'); 	
+		
+	}
+	return r;
+}
 
 //return a list of json objects
 //For each object, the key is the topic name

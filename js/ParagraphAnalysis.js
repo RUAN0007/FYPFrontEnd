@@ -2,9 +2,12 @@
 $("#waiting").hide();
     
 $(":submit").click(function(){
-	$("#waiting").show();
-	
 	var paragraph = $("#paragraph").val();
+	if(paragraph.replace(/(^s*)|(s*$)/g, "").length ==0){
+		alert('The input paragraph can NOT be empty!'); 	
+		return;
+	}
+	$("#waiting").show();
 	var animateBar=setInterval(animateProgressBar,1000)
 	
 

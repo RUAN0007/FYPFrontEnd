@@ -4,6 +4,7 @@ $("#posSection").hide();
 $("#negSection").hide();
 
 $(":submit").click(function(){
+	var animateBar=setInterval(animateProgressBar,1000)
 	$("#waiting").show();
 	$("#posSection").hide();
 	$("#negSection").hide();

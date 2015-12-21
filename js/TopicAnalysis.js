@@ -26,17 +26,35 @@ $("#addTopic").click(function(){
   //
 $("#paragraph").click(function(){
 	$("#waiting").show();
+	alert(constructArgument());
 
-	if(containChinese(posContents) || containChinese(negContents)){
-
-		chinese(posContents,negContents);
-	}else{
-		english(posContents,negContents);
-	}
+	// if(containChinese(posContents) || containChinese(negContents)){
+//
+// 		chinese(posContents,negContents);
+// 	}else{
+// 		english(posContents,negContents);
+// 	}
 
 
 })
 
+//return a list of json objects
+//For each object, the key is the topic name
+//the value is an array of aliases
+function constructArgument(){
+	
+	var parameters = [];
+	$("div.topic").each(function(){
+		var topicAliasPair = new Object();
+		var topic = $("input:first",this).val();
+		topicAliasPair[topic] = [];
+		$("input",this).each(function(){
+			topicAliasPair[topic].push($(this).val());
+		});
+		parameters.push(topicAliasPair);
+	});
+	return JSON.stringify(parameters);
+}
 
 //
 function updateTopicName(){

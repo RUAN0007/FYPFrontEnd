@@ -26,6 +26,7 @@ $("#addTopic").click(function(){
   //
 $("#paragraph").click(function(){
 	if(hasEmptyInput()) return;
+	var animateBar=setInterval(animateProgressBar,1000)
 	
 	$("#waiting").show();
 	// if(containChinese(posContents) || containChinese(negContents)){

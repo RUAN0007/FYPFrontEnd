@@ -9,6 +9,12 @@ $(":submit").click(function(){
 	$("#emotion").hide();
 		
 	var sentence = $("#sentence").val();
+	
+	if(sentence.replace(/(^s*)|(s*$)/g, "").length ==0){
+		alert("The input sentence can NOT be empty.");
+		return;
+	}
+	
 	var selectedMode = $('#mode input:radio:checked').val();
 	var animateBar=setInterval(animateProgressBar,1000)
 	var result;
@@ -35,7 +41,8 @@ $(":submit").click(function(){
 	}
 })
     
-
+function hasEmptyInput(){
+}
 
 
 function showProgessBar(){

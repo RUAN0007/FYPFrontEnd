@@ -1,18 +1,16 @@
-[
-	{
+[	{
 		"topic":"A",
 		"positive":3,
 		"negative":4,
 		"neutral":5,
 		"mixed":6
 	},
-	
 	{
-		"topic":"B",
-		"positive":4,
-		"negative":5,
-		"neutral":6,
-		"mixed":2
+	"topic":"B",
+	"positive":4,
+	"negative":5,
+	"neutral":6,
+	"mixed":2
 	},
 	{
 		"topic":"C",
@@ -20,5 +18,5 @@
 		"negative":2,
 		"neutral":2,
 		"mixed":2
-	},
+	}
 ]

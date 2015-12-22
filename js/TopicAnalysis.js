@@ -279,6 +279,168 @@ function callback(data){
 			]
 	});
 	
+	
+	var posPair = [];
+	var negPair = [];
+	var neuPair = [];
+	var mixPair = [];
+	
+	for(var key in data){
+		var obj = data[key];
+		posPair.push([obj.topic,obj.positive]);
+		negPair.push([obj.topic,obj.negative]);
+		neuPair.push([obj.topic,obj.neutral]);
+		mixPair.push([obj.topic,obj.mixed]);
+	}
+	
+	//Draw the positive chart
+	$("#posChart").highcharts({
+	
+		chart: {
+		            plotBackgroundColor: null,
+		            plotBorderWidth: null,
+		            plotShadow: false
+		        },
+		        title: {
+		            text: 'Positive Sentiment Distribution'
+		        },
+		        tooltip: {
+			    headerFormat:'<b>Topic: {point.key}</b><br>',
+		    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		        },
+		        plotOptions: {
+		            pie: {
+		                allowPointSelect: true,
+		                cursor: 'pointer',
+		                dataLabels: {
+		                    enabled: true,
+		                    color: '#000000',
+		                    connectorColor: '#000000',
+		                    format: '<b>Topic: {point.name}</b>: {point.y:.f}'
+		                }
+		            }
+		        },
+		        series: [{
+		            type: 'pie',
+		            name: 'Positive Sentiment',
+				data: posPair
+		        },
+			
+		]
+	
+	});
+	
+	//Draw the negative chart
+	$("#negChart").highcharts({
+	
+		chart: {
+		            plotBackgroundColor: null,
+		            plotBorderWidth: null,
+		            plotShadow: false
+		        },
+		        title: {
+		            text: 'Negative Sentiment Distribution'
+		        },
+		        tooltip: {
+			    headerFormat:'<b>Topic: {point.key}</b><br>',
+		    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		        },
+		        plotOptions: {
+		            pie: {
+		                allowPointSelect: true,
+		                cursor: 'pointer',
+		                dataLabels: {
+		                    enabled: true,
+		                    color: '#000000',
+		                    connectorColor: '#000000',
+		                    format: '<b>Topic: {point.name}</b>: {point.y:.f}'
+		                }
+		            }
+		        },
+		        series: [{
+		            type: 'pie',
+		            name: 'Negative Sentiment',
+				data: negPair
+		        },
+			
+		]
+	
+	});
+	
+	//Draw the neutral chart
+	$("#neuChart").highcharts({
+	
+		chart: {
+		            plotBackgroundColor: null,
+		            plotBorderWidth: null,
+		            plotShadow: false
+		        },
+		        title: {
+		            text: 'Neutral Sentiment Distribution'
+		        },
+		        tooltip: {
+			    headerFormat:'<b>Topic: {point.key}</b><br>',
+		    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		        },
+		        plotOptions: {
+		            pie: {
+		                allowPointSelect: true,
+		                cursor: 'pointer',
+		                dataLabels: {
+		                    enabled: true,
+		                    color: '#000000',
+		                    connectorColor: '#000000',
+		                    format: '<b>Topic: {point.name}</b>: {point.y:.f}'
+		                }
+		            }
+		        },
+		        series: [{
+		            type: 'pie',
+		            name: 'Neutral Sentiment',
+				data: negPair
+		        },
+			
+		]
+	
+	});
+	
+	//Draw the neutral chart
+	$("#mixChart").highcharts({
+	
+		chart: {
+		            plotBackgroundColor: null,
+		            plotBorderWidth: null,
+		            plotShadow: false
+		        },
+		        title: {
+		            text: 'Mixed Sentiment Distribution'
+		        },
+		        tooltip: {
+			    headerFormat:'<b>Topic: {point.key}</b><br>',
+		    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		        },
+		        plotOptions: {
+		            pie: {
+		                allowPointSelect: true,
+		                cursor: 'pointer',
+		                dataLabels: {
+		                    enabled: true,
+		                    color: '#000000',
+		                    connectorColor: '#000000',
+		                    format: '<b>Topic: {point.name}</b>: {point.y:.f}'
+		                }
+		            }
+		        },
+		        series: [{
+		            type: 'pie',
+		            name: 'Mixed Sentiment',
+				data: mixPair
+		        },
+			
+		]
+	
+	});
+	
 }
 
 

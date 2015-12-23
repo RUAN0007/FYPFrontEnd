@@ -15,7 +15,18 @@
 	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
 	<link rel="stylesheet" href="css/templatemo-style.css">
 	<!-- google web font css -->
-
+	<style type="text/css">
+	table{
+		font-size:20px;
+	}
+	th {
+		text-align: center;
+	}
+	td {
+		text-align: center;
+		color:white;
+	}
+	</style>
 </head>
 
 <body>
@@ -47,15 +58,43 @@
 	<div class="container">
 		<div class="row">
 			<h2 style="display:inline">Look at the sentiment from real-time tweets</h2>
-				<input style="margin-top:0px"  class="btn btn-info" type="submit" value="Start Sampling">
+				<input style="margin-top:0px"  class="btn btn-info" type="submit" value="Start Sampling" id="sampleButton">
 			<div >
 				<h1 style="border:white solid">Google Maps here</h1>
 			</div>
 			
 		</div>
+		<hr style="height:10px;border:none;border-top:10px groove skyblue;" />
 		<div class="row">
 				
 			<h2 >Inspect public opinions on topic</h2>
+			
+			<div class="col-md-4 col-sm-6 about-des">
+      			  <div class="input-group input-group-lg">
+      			    <span class="input-group-addon">Topic: </span>
+      			    <input id="topic" type="text" class="form-control"  aria-describedby="sizing-addon1" >
+      			  </div>
+			</div>
+			<div class="col-md-4 col-sm-6 about-des">
+      			  <div class="input-group input-group-lg">
+      			    <span class="input-group-addon">Period: </span>
+    <select class="form-control" id="period" >
+	    <option value ="day">Today</option>
+	      <option value ="week">Recent a week</option>
+	      <option value="month">Recent a month</option>
+	      <option value="3months">Recent three months</option>
+	</select>
+
+      			  </div>
+			</div>
+			<div class="col-md-4 col-sm-6 about-des">
+      			  <div class="input-group input-group-lg">
+			<input style="margin-top:0px"  class="btn btn-info" type="submit" value="Start" id="topicButton"> 
+      			  </div>
+			</div>
+			  
+		</div>
+		<div style="margin:30px" class="row">
 			<div id="waiting">
 				<div class="progress">
 					<div id="bar" class="progress-bar progress-bar-danger " style="width: 0%">
@@ -66,9 +105,38 @@
 				<h1  align="center">Processing ... ...</h1>
 
 			</div>
-			
+	
+			<div style="overflow-x: auto; overflow-y: auto; height:450px" id="twitterTable">
+				<!--display the twitter table here -->
+				<!-- <table class="table table-bordered">
 
+					<thead>
+					     <tr>
+						<th style="width:10%">Author</th>
+						<th style="width:10%">Creation Time</th>
+						<th style="width:70%">Content</th>
+						<th style="width:10%">Sentiment</th>
+					      </tr>
+ 					     <tr>
+ 						<td>RPC</td>
+ 						<td>199401</td>
+ 						<td>avd</td>
+ 						<td>									  <a  data-toggle="tooltip" title="Positive">
+							<img src="images/senti-icon/positive.jpeg">
+					 </a>
+				 		</td>
+ 					      </tr>
+				        </thead>
+				</table> -->		
+			</div>
 		</div>
+		
+		<div class="row">
+			<div id="chart">
+				<!--Draw the chart here -->
+			</div>
+		</div>
+		
 <div>	
 
 <!-- copyright section -->
@@ -99,7 +167,7 @@
 <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script> 
 <script src="js/nivo-lightbox.min.js"></script>
 <script src="js/common.js"></script>
-<!-- <script src="js/TwitterApplication.js"></script> -->
+<script src="js/TwitterApplication.js"></script>
 
 
 </body>

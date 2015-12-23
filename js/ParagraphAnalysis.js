@@ -1,5 +1,6 @@
 
 $("#waiting").hide();
+setInterval(animateProgressBar,1000)
     
 $(":submit").click(function(){
 	var paragraph = $("#paragraph").val();
@@ -8,7 +9,6 @@ $(":submit").click(function(){
 		return;
 	}
 	$("#waiting").show();
-	var animateBar=setInterval(animateProgressBar,1000)
 	
 
 	if(containChinese(paragraph)){

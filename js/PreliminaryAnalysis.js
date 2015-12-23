@@ -2,6 +2,7 @@
 $("#waiting").hide();
 $("#senti").hide();
 $("#emotion").hide();
+setInterval(animateProgressBar,1000)
     
 $(":submit").click(function(){
 	
@@ -17,7 +18,6 @@ $(":submit").click(function(){
 	$("#waiting").show();
 	$("#senti").hide();
 	$("#emotion").hide();
-	var animateBar=setInterval(animateProgressBar,1000)
 	var result;
 	
 

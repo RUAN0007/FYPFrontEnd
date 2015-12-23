@@ -2,6 +2,7 @@
 $("#waiting").hide();
 $("#posSection").hide();
 $("#negSection").hide();
+setInterval(animateProgressBar,1000)
 
 $(":submit").click(function(){
 	var posContents = $("#pos").val();
@@ -21,7 +22,6 @@ $(":submit").click(function(){
 		return;
 	}
 	
-	var animateBar=setInterval(animateProgressBar,1000)
 	$("#waiting").show();
 	$("#posSection").hide();
 	$("#negSection").hide();

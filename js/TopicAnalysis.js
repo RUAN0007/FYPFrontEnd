@@ -2,6 +2,7 @@
 $("#waiting").hide();
 var aliasCount = new Array();
 aliasCount["t1"] = 1;
+setInterval(animateProgressBar,1000)
 
 addOnClickRemoveAnimation();
 addOnClickAddAnimation("t1");
@@ -26,7 +27,6 @@ $("#addTopic").click(function(){
   //
 $("#paragraph").click(function(){
 	if(hasEmptyInput()) return;
-	var animateBar=setInterval(animateProgressBar,1000)
 	
 	$("#waiting").show();
 	var content = $("content").val();
